@@ -80,7 +80,16 @@
 {{ attach_library('sdc/node') }}
 <article{{ attributes.addClass(classes) }}>
 
-  
+  {% embed 'olivero:chip' with {
+  color: 'primary',
+  dismissable: true
+} only %}
+
+  {% block chip_content %}
+    Type: <span>{{ node.bundle() }}</span>
+  {% endblock %}
+
+{% endembed %}
 
   {{ title_prefix }}
   {% if label and not page %}
